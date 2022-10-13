@@ -1,2 +1,2 @@
 web: gunicorn baozi.wsgi
-web: gunicorn FromThePath FromThePath.wsgi
+web: gunicorn --pythonpath FromThePath FromThePath.wsgi
