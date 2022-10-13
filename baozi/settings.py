@@ -36,9 +36,8 @@ MIDDLEWARE = [
 
 # ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = [
-    "https://baozi-swap-backend.herokuapp.com", 
-    "https://6347e9e149449816f45b5c92--lucky-pasca-98c953.netlify.app/",
-    "https://6347e9e149449816f45b5c92--lucky-pasca-98c953.netlify.app/pools"
+    "https://baozi-swap-backend.herokuapp.com/",
+    "http://localhost:3000",  
 ]
 
 ROOT_URLCONF = 'baozi.urls'
