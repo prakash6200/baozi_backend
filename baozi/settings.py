@@ -33,6 +33,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 ROOT_URLCONF = 'baozi.urls'
