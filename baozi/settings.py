@@ -6,8 +6,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-IS_HEROKU = "DYNO" in os.environ
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,11 +34,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ALLOWED_HOSTS = ['*', 'https://baozi-swap-backend.herokuapp.com/']
-if IS_HEROKU:
-    ALLOWED_HOSTS = ["https://baozi-swap-backend.herokuapp.com/"]
-else:
-    ALLOWED_HOSTS = ["https://baozi-swap-backend.herokuapp.com/"]
+ALLOWED_HOSTS = ['*']
+
 
 ROOT_URLCONF = 'baozi.urls'
 
