@@ -37,8 +37,7 @@ MIDDLEWARE = [
 # ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = [
     "https://baozi-swap-backend.herokuapp.com",
-    "http://localhost:8080",
-    "http://localhost:3000",   
+    "http://localhost:8080",  
 ]
 
 ROOT_URLCONF = 'baozi.urls'
