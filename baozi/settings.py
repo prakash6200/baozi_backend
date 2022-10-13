@@ -1,5 +1,6 @@
 import os
 import yaml
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -192,3 +193,4 @@ START_BLOCK_FOR_SCANNER = config.get('START_BLOCK_FOR_SCANNER')
 ENDPOINT = config.get('ENDPOINT')
 SCANNER_SLEEP_IN_SECONDS = config.get('SCANNER_SLEEP_IN_SECONDS')
 MIN_BLOCKS_FOR_SCANNER = config.get('MIN_BLOCKS_FOR_SCANNER')
+django_heroku.settings(locals())
