@@ -36,7 +36,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
+ALLOWED_HOSTS = ['*', 'https://baozi-swap-backend.herokuapp.com/']
 if IS_HEROKU:
     ALLOWED_HOSTS = ["https://baozi-swap-backend.herokuapp.com/"]
 else:
