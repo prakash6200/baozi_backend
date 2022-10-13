@@ -36,6 +36,9 @@ MIDDLEWARE = [
     
 ]
 
+ALLOWED_HOSTS=['*']
+CORS_ORIGIN_ALLOW_ALL = True
+
 CORS_ALLOWED_ORIGINS = [
     "https://baozi-swap-backend.herokuapp.com",
     'https://baozi-swap-backend.herokuapp.com',
