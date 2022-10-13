@@ -15,7 +15,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "corsheaders",
+
     'rest_framework',
     'drf_yasg',
     'baozi.networks',
@@ -33,8 +33,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
 ]
 
 # ALLOWED_HOSTS = ['*']
