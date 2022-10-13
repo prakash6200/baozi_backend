@@ -1,0 +1,1 @@
+web: gunicorn baozi.wsgi
