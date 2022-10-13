@@ -34,7 +34,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 ]
-
+CORS_ORIGIN_ALLOW_ALL = True   
 # ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = [
     "https://baozi-swap-backend.herokuapp.com",
