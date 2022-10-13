@@ -1,6 +1,6 @@
 import os
 import yaml
-
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -170,6 +170,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+django_heroku.settings(locals())
 
 STATIC_URL = '/django-static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
