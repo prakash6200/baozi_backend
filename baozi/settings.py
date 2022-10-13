@@ -34,7 +34,7 @@ MIDDLEWARE = [
 ]
 
 
-ALLOWED_HOSTS = 'baozi-swap-backend.herokuapp.com'
+ALLOWED_HOSTS = ['*']
 
 ROOT_URLCONF = 'baozi.urls'
 
