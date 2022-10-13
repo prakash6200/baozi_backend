@@ -38,7 +38,8 @@ CORS_ALLOWED_ORIGINS = [
     'baozi-swap-backend.herokuapp.com',
     'https://baozi-swap-backend.herokuapp.com/',   
 ]
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'baozi-swap-backend.herokuapp.com',
+    'https://baozi-swap-backend.herokuapp.com/',]
 
 ROOT_URLCONF = 'baozi.urls'
 
