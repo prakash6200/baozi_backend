@@ -15,13 +15,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "corsheaders",
     'rest_framework',
     'drf_yasg',
     'baozi.networks',
     'baozi.pools',
     'baozi.users',
     'baozi.tokens',
-    'corsheaders',
+    
 ]
 
 MIDDLEWARE = [
@@ -45,14 +46,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:9000",
 ]
 
-CORS_ALLOW_METHODS = [
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-]
 
 ROOT_URLCONF = 'baozi.urls'
 
