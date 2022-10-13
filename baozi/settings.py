@@ -37,11 +37,7 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = True   
 # ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = [
-    "https://baozi-swap-backend.herokuapp.com",
-    "https://6347e9e149449816f45b5c92--lucky-pasca-98c953.netlify.app",
-    "http://localhost:8080",
-    "http://localhost:3000",
-    "http://127.0.0.1:9000",
+    "*"
 ]
 
 
