@@ -33,13 +33,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-DEBUG = False
-CORS_ALLOWED_ORIGINS = [
-    'baozi-swap-backend.herokuapp.com',
-    'https://baozi-swap-backend.herokuapp.com/',   
-]
-ALLOWED_HOSTS = ['*', 'baozi-swap-backend.herokuapp.com',
-    'https://baozi-swap-backend.herokuapp.com/',]
+
+ALLOWED_HOSTS = ['*']
 
 ROOT_URLCONF = 'baozi.urls'
 
