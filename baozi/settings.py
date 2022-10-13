@@ -1,4 +1,5 @@
 import os
+# import django_heroku
 import yaml
 from pathlib import Path
 
@@ -14,34 +15,37 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
+
     'rest_framework',
     'drf_yasg',
-
     'baozi.networks',
     'baozi.pools',
     'baozi.users',
     'baozi.tokens',
+    
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
+
 
 CORS_ALLOWED_ORIGINS = [
-    "https://6347e9e149449816f45b5c92--lucky-pasca-98c953.netlify.app/",
-    "http://localhost:3000",   
+    "https://baozi-swap-backend.herokuapp.com",
+    "https://6347e9e149449816f45b5c92--lucky-pasca-98c953.netlify.app",
+    "http://localhost:8080",
+    "http://localhost:3000",
+    "http://127.0.0.1:9000",
 ]
 
-ROOT_URLCONF = 'baozi.urls'
 
+ROOT_URLCONF = 'baozi.urls'
 
 TEMPLATES = [
     {
@@ -161,13 +165,14 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-CSRF_COOKIE_SECURE = False
+
 USE_X_FORWARDED_HOST = True
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+
 
 
 STATIC_URL = '/django-static/'
