@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'baozi.pools',
     'baozi.users',
     'baozi.tokens',
+    'corsheaders'
     
 ]
 
@@ -30,6 +31,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -39,11 +41,12 @@ MIDDLEWARE = [
 ALLOWED_HOSTS=['*']
 CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ALLOWED_ORIGINS = [
-    '*',  
+CORS_ORIGIN_WHITELIST = [
     'https://baozi-swap-backend.herokuapp.com',
-    "https://6347e9e149449816f45b5c92--lucky-pasca-98c953.netlify.app", 
     'https://6347e9e149449816f45b5c92--lucky-pasca-98c953.netlify.app',
+    "https://6347e9e149449816f45b5c92--lucky-pasca-98c953.netlify.app", 
+    '*', 
+    'http://localhost:3000' 
 ]
 
 ROOT_URLCONF = 'baozi.urls'
