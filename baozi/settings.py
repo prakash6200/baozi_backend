@@ -36,7 +36,7 @@ MIDDLEWARE = [
 
 
 CORS_ALLOWED_ORIGINS = [
-    "https://6347e9e149449816f45b5c92--lucky-pasca-98c953.netlify.app/",   
+    "https://63494841058c242a7ff14b11--stupendous-monstera-3944b5.netlify.app/",   
 ]
 
 ROOT_URLCONF = 'baozi.urls'
