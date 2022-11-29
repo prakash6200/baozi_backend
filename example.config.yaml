@@ -1,13 +1,12 @@
 DJANGO_SECRET_KEY: "abc"
 DEBUG: True
+ALLOWED_HOSTS:
+  - ".localhost"
+  - "127.0.0.1"
+  - "0.0.0.0"
 
-ALLOWED_HOSTS: ['*']
-CORS_ORIGIN_WHITELIST: ['https://6347e9e149449816f45b5c92--lucky-pasca-98c953.netlify.app/']
-CORS_ALLOWED_ORIGINS: [
-    "https://6347e9e149449816f45b5c92--lucky-pasca-98c953.netlify.app/",   
-]
 MIN_BLOCKS_FOR_SCANNER: 8
 SCANNER_SLEEP_IN_SECONDS: 60
-CONTRACT_ADDRESS: "TGKfSds9r7NRxtn5qaxWYRhr7iYTQg4xEp"
+CONTRACT_ADDRESS: "TPKJzp3QcRbe9vuLmhQCZChZKWkXQjjNhs"
 START_BLOCK_FOR_SCANNER: 21007565
 ENDPOINT: 'https://api.shasta.trongrid.io'

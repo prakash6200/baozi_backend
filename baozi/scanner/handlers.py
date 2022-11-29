@@ -41,6 +41,7 @@ def handle_mint(event_data):
 
     pool_object = Pool.objects.filter(
         address=to_base58check_address(pair_address.lower())).first()
+        
     if not pool_object:
 
         token_0 = Network.execute_read_method(

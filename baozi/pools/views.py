@@ -1,5 +1,6 @@
 import base58
 from baozi.networks.models import Network
+from tronpy import Tron
 from baozi.pools.models import Pool
 from baozi.users.models import User
 from baozi.tokens.models import Token
@@ -10,6 +11,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from tronpy.keys import is_base58check_address
 
+client = Tron(network='shasta')
+cntr = client.get_contract("TY3gBdRcd3uqpemqshVEbAy7TRWzoHMC2u")
 
 class PoolView(APIView):
 
@@ -55,58 +58,44 @@ class PoolByAddressView(APIView):
             status=status.HTTP_200_OK
         )
 
-    # def post(self, request, address):
-
-        data = request.data
-        Address = data.get('lp_token_address')
-        Token0, _ = Token.objects.get_or_create(address=data.get('token0'))
-        Token1, _ = Token.objects.get_or_create(address=data.get('token1'))
-        Providers, _ = User.objects.get_or_create(address=address)
-
-        saveInfo = Pool.objects.get_or_create(address=Address, token0=Token0, token1=Token1, providers=Providers)
-        # pool.save()
-        # saveInfo = Pool(address=Address, token0=Token0, token1=Token1, providers=Providers)
-        # saveInfo = Pool.objects.pools(Address, Token0, Token1, Providers)
-        print(saveInfo)
-        # print(Address, Token0, Token1, Providers)
-
-        # print(address, token0, token1)
-
-        # saveInfo = Pool.objects.get_or_create(address=address, token0_id=token0, token1_id=token1)
-        # print(saveInfo)
-        # print(pool)
-
-        # saveInfo.save()
-
-        # saveInfo.pools.add(Providers)
-
-        return Response(
-            status=status.HTTP_200_OK
-        )
-
     def post(self, request, address):
         data = request.data
-        Address = data.get('lp_token_address')
+        print(data)
+        # print(data.get('token0'))
+        # print(data.get('token1'))
+
+        if not is_base58check_address(address):
+            return Response('invalid user_address', status=status.HTTP_400_BAD_REQUEST)
+
+        if not is_base58check_address(data.get('token0')):
+            return Response('invalid token0', status=status.HTTP_400_BAD_REQUEST)
+        
+        if not is_base58check_address(data.get('token1')):
+            return Response('invalid token1', status=status.HTTP_400_BAD_REQUEST)
+        
+        lp_token = cntr.functions.getPair(data.get('token0'), data.get('token1'))
+        print(lp_token)
+        
+        if not is_base58check_address(lp_token):
+            return Response('invalid lp_token', status=status.HTTP_400_BAD_REQUEST)
+
         Token0, _ = Token.objects.get_or_create(address=data.get('token0'))
+        
         Token1, _ = Token.objects.get_or_create(address=data.get('token1'))
-        Providers, _ = User.objects.get_or_create(address=address)
-        # Providers = 3
-        # providers = data.get('providers')
 
-        # if not is_base58check_address(token0):
-        #     return Response('invalid token0', status=status.HTTP_400_BAD_REQUEST)
+        pool_object, _ = Pool.objects.get_or_create(
+            address=lp_token,
+            token0=Token0,
+            token1=Token1
+        )
 
-        # if not is_base58check_address(token1):
-        #     return Response('invalid token1', status=status.HTTP_400_BAD_REQUEST)
+        user_object, _ = User.objects.get_or_create(
+            address=address
+        )
 
-        # if not is_base58check_address(address):
-            # return Response('invalid address', status=status.HTTP_400_BAD_REQUEST)
-
-        # print(address, token0, token1)
-
-        saveInfo = Pool.objects.get_or_create(address=Address, token0=Token0, token1=Token1)
-        print(saveInfo)
+        pool_object.providers.add(user_object)
+    
         return Response(
-            # data=TokenSerializer(token).data,
             status=status.HTTP_200_OK
         )
+
