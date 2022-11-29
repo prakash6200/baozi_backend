@@ -36,7 +36,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "*",   
+    "https://baoziswapstaking.web.app"  
 ]
 
 ROOT_URLCONF = 'baozi.urls'
