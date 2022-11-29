@@ -12,7 +12,7 @@ from rest_framework.views import APIView
 from tronpy.keys import is_base58check_address
 
 client = Tron(network='shasta')
-cntr = client.get_contract("TY3gBdRcd3uqpemqshVEbAy7TRWzoHMC2u")
+cntr = client.get_contract("TEruqihC6pf7A5fgWRdqBBbwBP4c9AiZBD")
 
 class PoolView(APIView):
 
